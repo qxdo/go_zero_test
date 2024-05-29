@@ -1,0 +1,12 @@
+type Request {
+	Name string `path:"name,options=you|me"`
+}
+
+type Response {
+	Message string `json:"message"`
+}
+
+service go_zero_test-api {
+	@handler Go_zero_testHandler
+	get /from/:name(Request) returns (Response)
+}
