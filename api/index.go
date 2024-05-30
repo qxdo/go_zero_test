@@ -14,7 +14,7 @@ var srv rest.Server
 
 func init() {
 	var c config.Config
-	conf.MustLoad("../etc/gozerotest-api.yaml", &c)
+	conf.MustLoad("./etc/gozerotest-api.yaml", &c)
 
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
