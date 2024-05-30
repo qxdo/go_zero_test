@@ -8,12 +8,31 @@ import (
 	"go_zero_test/inner/handler"
 	"go_zero_test/inner/svc"
 	"net/http"
+	"bytes"
+	"os"
+	"os/exec"
 )
 
 var srv rest.Server
 
 func init() {
+	
 	var c config.Config
+	// 执行 ls 命令
+	cmd := exec.Command("ls", "-la") // 使用 "-la" 选项以长格式列出所有文件，包括隐藏文件
+	var out bytes.Buffer
+	cmd.Stdout = &out // 将输出重定向到 out 变量
+
+	// 运行命令
+	err := cmd.Run()
+	if err != nil {
+		fmt.Println("执行 ls 命令失败:", err)
+		return
+	}
+
+	// 输出 ls 命令的结果
+	fmt.Print(out.String())
+	
 	conf.MustLoad("./etc/gozerotest-api.yaml", &c)
 
 	server := rest.MustNewServer(c.RestConf)
