@@ -9,7 +9,6 @@ import (
 	"go_zero_test/inner/svc"
 	"net/http"
 	"bytes"
-	"os"
 	"os/exec"
 )
 
