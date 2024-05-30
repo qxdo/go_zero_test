@@ -25,6 +25,8 @@ func NewGo_zero_testLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Go_z
 
 func (l *Go_zero_testLogic) Go_zero_test(req *types.Request) (resp *types.Response, err error) {
 	// todo: add your logic here and delete this line
-
+	resp = &types.Response{
+		Message: "adkjgasjkdgsd",
+	}
 	return
 }
